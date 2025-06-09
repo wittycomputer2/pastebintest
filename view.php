@@ -99,6 +99,7 @@ if (!isset($error_message) && isset($paste_data) && $paste_data !== null) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Private and free pastebin</h1>
     <div class="container">
         <h1>View Paste</h1>
 
@@ -131,5 +132,9 @@ if (!isset($error_message) && isset($paste_data) && $paste_data !== null) {
         <hr>
         <p><a href="index.html">Create New Paste</a></p>
     </div>
+    <footer>
+      <img src="images/logopaste.png" alt="Logo" style="max-width: 100%; height: auto;" />
+      <p>This is an open source pastebin by <a href="https://witty.computer">Witty Computer</a>.</p>
+    </footer>
 </body>
 </html>
