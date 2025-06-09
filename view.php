@@ -99,9 +99,9 @@ if (!isset($error_message) && isset($paste_data) && $paste_data !== null) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Private and free pastebin</h1>
+    <h1 class="main-title">Private and free pastebin</h1>
     <div class="container">
-        <h1>View Paste</h1>
+        <!-- <h1>View Paste</h1> -->
 
         <?php if (isset($error_message)): ?>
             <p class="error"><?php echo htmlspecialchars($error_message); ?></p>
@@ -121,7 +121,7 @@ if (!isset($error_message) && isset($paste_data) && $paste_data !== null) {
             </form>
         <?php elseif ($display_content !== null): ?>
             <h2>Paste Content:</h2>
-            <pre><?php echo $display_content; // Content is already htmlspecialchars'd from create.php ?></pre>
+            <pre class="paste-content-wrapper"><?php echo $display_content; // Content is already htmlspecialchars'd from create.php ?></pre>
             <?php if ($show_burn_message): ?>
                 <p><em>Note: This paste was set to "burn after reading" and has now been deleted.</em></p>
             <?php endif; ?>
@@ -130,7 +130,7 @@ if (!isset($error_message) && isset($paste_data) && $paste_data !== null) {
         <?php endif; ?>
 
         <hr>
-        <p><a href="index.html">Create New Paste</a></p>
+        <p class="create-new-link-p"><a href="index.html">Create New Paste</a></p>
     </div>
     <footer>
       <img src="images/logopaste.png" alt="Logo" style="max-width: 100%; height: auto;" />
