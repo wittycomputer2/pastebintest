@@ -6,8 +6,8 @@ define('PASTES_DIR', __DIR__ . '/pastes/');
 
 // 1. Check if the request method is POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    // Redirect to index.html or show an error
-    header('Location: index.html');
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'error', 'message' => 'Invalid request method.']);
     exit;
 }
 
@@ -59,9 +59,10 @@ $serialized_data = json_encode($paste_data, JSON_PRETTY_PRINT);
 // Ensure pastes directory exists
 if (!is_dir(PASTES_DIR)) {
     if (!mkdir(PASTES_DIR, 0770, true)) {
-        // Handle error: directory could not be created
         error_log("Failed to create pastes directory: " . PASTES_DIR);
-        die("Error: Could not create storage directory. Please check permissions.");
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'error', 'message' => 'Error: Could not create storage directory. Please check server permissions.']);
+        exit;
     }
 }
 
@@ -69,13 +70,34 @@ $file_path = PASTES_DIR . $unique_id . '.json';
 
 // Write the serialized data to the file
 if (file_put_contents($file_path, $serialized_data) === false) {
-    // Handle error: file could not be written
     error_log("Failed to write paste file: " . $file_path);
-    die("Error: Could not save paste. Please try again later.");
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'error', 'message' => 'Error: Could not save paste. Please try again later.']);
+    exit;
 }
 
-// 9. Redirection
-header("Location: view.php?id=" . $unique_id);
+// 9. Construct JSON Response
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https:" : "http:";
+$host = $_SERVER['HTTP_HOST'];
+// dirname($_SERVER['PHP_SELF']) can be tricky if script is in root.
+// SCRIPT_NAME is usually more reliable for the full path to the script.
+// To get the base directory, we find the last slash in SCRIPT_NAME.
+$script_path = $_SERVER['SCRIPT_NAME'];
+$last_slash_pos = strrpos($script_path, '/');
+$base_url_path = ($last_slash_pos !== false) ? substr($script_path, 0, $last_slash_pos) : '';
+$base_url_path = rtrim($base_url_path, '/'); // Ensure no trailing slash if not root
+
+$paste_url = $protocol . '//' . $host . $base_url_path . '/view.php?id=' . $unique_id;
+
+$response = [
+    'status' => 'success',
+    'url' => $paste_url,
+    'message' => 'Paste created successfully! You can copy the URL below.'
+    // 'message' => 'Paste created successfully! Press Ctrl+C (or Cmd+C on Mac) to copy your paste URL.'
+];
+
+header('Content-Type: application/json');
+echo json_encode($response);
 exit;
 
 ?>

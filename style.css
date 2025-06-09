@@ -1,16 +1,20 @@
 body {
     font-family: sans-serif;
     margin: 20px;
-    background-color: #f4f4f4;
+    background-color: #292929;
+    color: white;
 }
 
 .container {
-    background-color: #fff;
+    background-color: #333;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border: 1px solid #444;
 }
 
+/* Remove generic block display for more specific control within form-group */
+/*
 label,
 input,
 textarea,
@@ -18,21 +22,97 @@ select {
     display: block;
     margin-bottom: 10px;
 }
+*/
 
-textarea {
-    width: 95%;
-    min-height: 150px;
+textarea,
+input[type="text"],
+input[type="password"],
+select {
+    background-color: #444;
+    color: white;
+    border: 1px solid #555;
+    padding: 8px; /* Added padding for better appearance */
+    border-radius: 4px; /* Added border-radius */
+    box-sizing: border-box; /* Ensures padding doesn't expand element size */
 }
 
+textarea {
+    width: 100%; /* Default to full width within its container */
+    min-height: 150px;
+    margin-bottom: 10px; /* Retain some bottom margin */
+}
+
+input[type="text"], /* Specific input types */
+input[type="password"],
+select {
+    width: 100%; /* Default to full width */
+    margin-bottom: 10px; /* Retain some bottom margin */
+}
+
+
 input[type="submit"] {
-    background-color: #007bff;
-    color: white;
+    background-color: #e6e77d;
+    color: #292929;
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-top: 20px; /* Submit Button Spacing */
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #d4d56f;
+}
+
+a {
+    color: #e6e77d;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block; /* Default for mobile */
+    margin-bottom: 5px; /* Space between label and input on mobile */
+}
+
+.form-group input[type="checkbox"] {
+    /* Basic styling for checkbox, can be enhanced */
+    display: inline-block; /* Align with label text if possible */
+    width: auto;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+
+@media (min-width: 768px) {
+    .form-group label {
+        display: inline-block;
+        width: 180px;
+        vertical-align: top;
+        margin-right: 10px;
+        margin-bottom: 0; /* Remove bottom margin for desktop */
+    }
+
+    .form-group textarea,
+    .form-group input[type="text"],
+    .form-group input[type="password"],
+    .form-group select {
+        display: inline-block;
+        width: calc(100% - 200px); /* (180px label + 10px margin + 10px buffer) */
+        vertical-align: top;
+        margin-bottom: 0; /* Remove bottom margin for desktop */
+    }
+
+    .form-group input[type="checkbox"] {
+        /* Already inline-block, ensure proper alignment */
+        margin-top: 5px; /* Adjust if needed for vertical alignment with label */
+        vertical-align: middle; /* Re-affirm */
+    }
+
+    /* Adjust textarea width specifically if calc is problematic, or for preference */
+    /* .form-group textarea {
+        width: calc(100% - 200px);
+    } */
 }

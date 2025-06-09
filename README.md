@@ -1,14 +1,15 @@
 # Simple PHP Pastebin
 
-A simple pastebin application built with PHP, HTML, CSS, and JavaScript. Allows users to create text pastes with optional password protection, expiration times, and a "burn after reading" feature.
+A simple pastebin application built with PHP, HTML, CSS, and JavaScript, now featuring a dark theme. Allows users to create text pastes with optional password protection, expiration times, and a "burn after reading" feature.
 
 ## Features
 
 *   Create text pastes.
 *   Set expiration for pastes (1 Day, 1 Week, 1 Month).
 *   Optional password protection for pastes.
-*   Optional "burn after reading" feature (paste is deleted after first view).
+*   Optional "burn after reading" feature (paste is deleted after the first time its unique URL is visited).
 *   Unique URLs for each paste.
+*   Displays the unique paste URL directly on the page after creation for easy copying (no immediate redirect). This ensures "burn after reading" pastes are not accidentally viewed by the creator immediately.
 *   Automatic deletion of expired pastes upon access.
 
 ## Files
@@ -53,10 +54,12 @@ A simple pastebin application built with PHP, HTML, CSS, and JavaScript. Allows 
 
 4.  **Testing:**
     *   Open your website (e.g., `yourdomain.com/path/to/pastebin/index.html`) in a browser.
-    *   Try creating a paste.
-    *   Check if you are redirected to a `view.php?id=...` URL and can see your paste.
-    *   Test password protection and the "burn after reading" feature.
-    *   Test expiration by setting a short expiration (if you were to modify the code for testing, e.g., 1 minute) or by waiting for a day.
+    *   Try creating a paste using the form.
+    *   After submission, the page should *not* redirect. Instead, a success message and the unique URL for your paste should appear below the form.
+    *   Copy this URL and open it in a new tab or window. You should be able to see your paste.
+    *   Test password protection: create a password-protected paste, then try to view it. You should be prompted for the password.
+    *   Test the "burn after reading" feature: create a "burn" paste, view it once. Try to view it again using the same URL; it should be gone or show an appropriate message.
+    *   Test expiration by setting a short expiration (if you were to modify the code for testing, e.g., 1 minute) or by waiting for a day and then trying to access the paste.
 
 ## (Optional) Cron Job for Proactive Cleanup
 

@@ -10,30 +10,31 @@
     <h1>Create New Paste</h1>
     <div class="container">
         <form action="create.php" method="POST" id="pasteForm">
-            <div>
-                <label for="content">Paste Content:</label><br>
-            <textarea name="content" id="content" rows="10" cols="50"></textarea>
-        </div>
-        <div>
-            <label for="expire">Expires In:</label><br>
-            <select name="expire" id="expire">
-                <option value="1_day">1 Day</option>
-                <option value="1_week">1 Week</option>
-                <option value="1_month">1 Month</option>
-            </select>
-        </div>
-        <div>
-            <label for="password">Password (Optional):</label><br>
-            <input type="password" name="password" id="password">
-        </div>
-        <div>
-            <label for="burn_after_read">Burn After Reading:</label><br>
-            <input type="checkbox" name="burn_after_read" id="burn_after_read" value="1">
-        </div>
-            <div>
+            <div class="form-group">
+                <label for="content">Paste Content:</label>
+                <textarea name="content" id="content" rows="10" cols="50" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="expire">Expires In:</label>
+                <select name="expire" id="expire">
+                    <option value="1_day">1 Day</option>
+                    <option value="1_week">1 Week</option>
+                    <option value="1_month">1 Month</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="password">Password (Optional):</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="form-group">
+                <label for="burn_after_read">Burn After Reading:</label>
+                <input type="checkbox" name="burn_after_read" id="burn_after_read" value="1">
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create Paste">
             </div>
         </form>
+        <div id="resultMessage" class="form-group" style="margin-top: 20px;"></div>
     </div>
     <script src="script.js"></script>
 </body>
