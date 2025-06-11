@@ -186,3 +186,7 @@ pre.paste-content-wrapper {
 .site-footer a:hover {
   text-decoration: underline;
 }
+
+.site-footer div {
+  margin-top: 10px; /* Add some space above the div containing the image */
+}
