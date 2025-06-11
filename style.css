@@ -165,3 +165,24 @@ pre.paste-content-wrapper {
   margin-top: 20px; /* Space after hr */
   margin-bottom: 20px; /* Space before footer or bottom of container */
 }
+
+.site-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 15px;
+  font-size: 0.85em; /* Smaller font size */
+  color: #aaa; /* Lighter color for less emphasis */
+}
+
+.site-footer p {
+  margin: 5px 0; /* Adjust spacing between paragraphs in footer */
+}
+
+.site-footer a {
+  color: #ccc; /* Slightly brighter link color for readability */
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
