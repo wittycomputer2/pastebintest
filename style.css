@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
 body {
-    font-family: sans-serif;
+    font-family: "IBM Plex Mono", monospace;
     margin: 20px;
     background-color: #292929;
     color: white;
@@ -11,6 +12,10 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border: 1px solid #444;
+    width: 80%; /* Or a max-width like 960px */
+    max-width: 960px; /* Set a max-width for larger screens */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Remove generic block display for more specific control within form-group */
@@ -115,4 +120,69 @@ a {
     /* .form-group textarea {
         width: calc(100% - 200px);
     } */
+}
+
+.main-title {
+  font-size: 1.5em; /* Smaller than default h1, adjust as needed */
+  text-transform: uppercase;
+  text-align: center; /* Added for centering as per later plan step */
+}
+
+.create-paste-title {
+  color: #e6e77d;
+  text-align: center; /* Added for centering as per later plan step */
+}
+
+footer img {
+  margin-top: 20px; /* Add space above the image */
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px; /* Add some space above the footer block */
+}
+
+pre.paste-content-wrapper {
+  background-color: #444; /* Light grey, similar to inputs */
+  color: white;
+  padding: 15px;
+  border-radius: 4px;
+  white-space: pre-wrap; /* Ensures long lines wrap */
+  word-wrap: break-word; /* Breaks long words if necessary */
+  border: 1px solid #555; /* Optional: similar to inputs */
+  text-align: left; /* Ensure paste content is left-aligned */
+}
+
+.container h2 {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-weight: normal; /* Less emphasis than h1 */
+}
+
+.create-new-link-p {
+  text-align: center;
+  margin-top: 20px; /* Space after hr */
+  margin-bottom: 20px; /* Space before footer or bottom of container */
+}
+
+.site-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 15px;
+  font-size: 0.85em; /* Smaller font size */
+  color: #aaa; /* Lighter color for less emphasis */
+}
+
+.site-footer p {
+  margin: 5px 0; /* Adjust spacing between paragraphs in footer */
+}
+
+.site-footer a {
+  color: #ccc; /* Slightly brighter link color for readability */
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
 }
