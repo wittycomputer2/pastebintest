@@ -133,8 +133,10 @@ if (!isset($error_message) && isset($paste_data) && $paste_data !== null) {
         <p class="create-new-link-p"><a href="index.html">Create New Paste</a></p>
     </div>
 <footer class="site-footer">
-  <p>Minimal, private and free pastebin from <a href="https://witty.computer">Witty Computer</a></p>
-  <p><a href="https://witty.computer">Logo goes here.</a></p>
+   <p>Minimal, private and free pastebin from <a href="https://witty.computer">Witty Computer</a></p>
+  <div style="text-align: center;">
+    <img src="/images/logopaste.png" alt="Logo">
+  </div>
 </footer>
 </body>
 </html>
