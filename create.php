@@ -20,10 +20,39 @@ $burn_after_read_value = isset($_POST['burn_after_read']) ? $_POST['burn_after_r
 // 3. Input Sanitization
 $sanitized_content = htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
 
-// 4. Password Hashing
+// 4. Encryption & Password Hashing
 $password_hash = null;
+$encryption_salt = null;
+$encryption_iv = null;
+$encrypted_content = $sanitized_content; // Default to sanitized content if no password
+
 if (!empty($password)) {
+    if (!extension_loaded('openssl')) {
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'error', 'message' => 'OpenSSL extension is not available. Cannot encrypt content.']);
+        exit;
+    }
+
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
+
+    // Generate a salt for key derivation
+    $encryption_salt = random_bytes(16);
+    // Derive a key from the password and salt
+    // Using SHA256 for PBKDF2, adjust iterations as needed for security/performance balance
+    $encryption_key = hash_pbkdf2('sha256', $password, $encryption_salt, 10000, 32, true);
+
+    // AES-256-CBC encryption
+    $cipher = 'aes-256-cbc';
+    $iv_length = openssl_cipher_iv_length($cipher);
+    $encryption_iv = openssl_random_pseudo_bytes($iv_length);
+
+    $encrypted_data = openssl_encrypt($sanitized_content, $cipher, $encryption_key, OPENSSL_RAW_DATA, $encryption_iv);
+    if ($encrypted_data === false) {
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'error', 'message' => 'Content encryption failed.']);
+        exit;
+    }
+    $encrypted_content = base64_encode($encrypted_data); // Store as base64
 }
 
 // 5. Expiration Calculation
@@ -46,11 +75,15 @@ $burn_status = ($burn_after_read_value === '1');
 
 $paste_data = [
     'id' => $unique_id,
-    'content' => $sanitized_content,
+    'content' => $encrypted_content, // This is now potentially encrypted
     'expiration_timestamp' => $expiration_timestamp,
-    'password_hash' => $password_hash,
+    'password_hash' => $password_hash, // For authentication
     'burn_after_read' => $burn_status,
-    'created_at' => $current_time
+    'created_at' => $current_time,
+    // Add encryption metadata if content was encrypted
+    'encryption_salt' => $encryption_salt ? base64_encode($encryption_salt) : null,
+    'encryption_iv' => $encryption_iv ? base64_encode($encryption_iv) : null,
+    'is_encrypted' => !empty($password) // Flag to indicate if encryption was applied
 ];
 
 $serialized_data = json_encode($paste_data, JSON_PRETTY_PRINT);

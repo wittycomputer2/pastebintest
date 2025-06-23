@@ -54,8 +54,37 @@ if (!isset($error_message) && isset($paste_data) && $paste_data !== null) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['password_submission'])) {
             if (isset($_POST['password'])) {
                 if (password_verify($_POST['password'], $paste_data['password_hash'])) {
-                    // Password correct, proceed to display
-                    $display_content = $paste_data['content'];
+                    // Password hash matches, now attempt decryption if needed
+                    if (isset($paste_data['is_encrypted']) && $paste_data['is_encrypted'] === true) {
+                        if (!extension_loaded('openssl')) {
+                            $error_message = "OpenSSL extension is not available on the server. Cannot decrypt content.";
+                            // Do not show password form again if this system error occurs
+                        } elseif (empty($paste_data['encryption_salt']) || empty($paste_data['encryption_iv'])) {
+                            $error_message = "Cannot decrypt content: missing salt or IV. The paste data might be corrupted.";
+                        } else {
+                            $salt = base64_decode($paste_data['encryption_salt']);
+                            $iv = base64_decode($paste_data['encryption_iv']);
+                            $submitted_password = $_POST['password'];
+
+                            // Derive the key using the submitted password and stored salt
+                            $decryption_key = hash_pbkdf2('sha256', $submitted_password, $salt, 10000, 32, true);
+
+                            $cipher = 'aes-256-cbc';
+                            $decrypted_content = openssl_decrypt(base64_decode($paste_data['content']), $cipher, $decryption_key, OPENSSL_RAW_DATA, $iv);
+
+                            if ($decrypted_content === false) {
+                                // Decryption failed. This could be due to wrong password (even if hash matched, if PBKDF2 iterations differ or other subtle issues)
+                                // or corrupted data. More likely, password for key derivation was wrong.
+                                $password_error = "Incorrect password or unable to decrypt content.";
+                                $show_password_form = true; // Show form again
+                            } else {
+                                $display_content = $decrypted_content; // Successfully decrypted
+                            }
+                        }
+                    } else {
+                        // Not encrypted, password was correct for non-encrypted content (legacy or no password originally)
+                        $display_content = $paste_data['content'];
+                    }
                 } else {
                     $password_error = "Incorrect password.";
                     $show_password_form = true; // Show form again
@@ -70,11 +99,20 @@ if (!isset($error_message) && isset($paste_data) && $paste_data !== null) {
             $show_password_form = true;
         }
     } else {
-        // Not password protected, display directly
-        $display_content = $paste_data['content'];
+        // Not password protected
+        // Check if it's 'encrypted' but has no password_hash (should not happen with current create.php logic)
+        if (isset($paste_data['is_encrypted']) && $paste_data['is_encrypted'] === true) {
+            // This case implies data inconsistency or an old format paste that was marked encrypted
+            // but somehow lost its password hash, or was never meant to be password protected.
+            // For safety, treat as inaccessible or error.
+            $error_message = "Content is marked as encrypted but no password was set. Cannot display.";
+        } else {
+            // Standard non-password-protected, non-encrypted paste
+            $display_content = $paste_data['content'];
+        }
     }
 
-    // If content is ready to be displayed (either not password protected or password was correct)
+    // If content is ready to be displayed (either not password protected or password was correct and decryption succeeded)
     if ($display_content !== null && !$show_password_form) {
         // 7. Handle "Burn After Reading"
         if (isset($paste_data['burn_after_read']) && $paste_data['burn_after_read'] === true) {
