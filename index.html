@@ -3,53 +3,1089 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create New Paste</title>
+    <title>Essence Words Discovery Guide</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="main-title">Private and free pastebin</h1>
-    <h1 class="create-paste-title">Create New Paste</h1>
-    <div class="container">
-        <form action="create.php" method="POST" id="pasteForm">
-            <div class="form-group">
-                <label for="content">Paste Content:</label>
-                <textarea name="content" id="content" rows="10" cols="50" required></textarea>
+    <header>
+        <div class="header-content">
+            <h1>Essence Words Discovery Guide</h1>
+            <p class="subtitle">An interactive guide to discovering your authentic self.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="workbook-content">
+            <div class="introduction">
+                <h2>21 Mind-Blowing Journaling Power Prompts for Living Deep</h2>
+                <p>This workbook contains 21 powerful journaling prompts designed to take you on a profound journey of self-discovery, helping you to "live deep" and connect with your most authentic self. Each prompt includes questions for you to answer, space to write your responses, and instructions for using AI to gain deeper insights into your answers.</p>
+                <h3>How to Use This Interactive Workbook</h3>
+                <ul>
+                    <li>Choose a prompt that resonates with you</li>
+                    <li>Answer all the questions in the space provided</li>
+                    <li>Copy your answers and the prompt instructions into an AI chat (like ChatGPT)</li>
+                    <li>Review the AI's analysis of your responses for deeper insights</li>
+                    <li>Complete the recommended journaling exercise</li>
+                    <li>Continue with additional prompts as desired</li>
+                    <li>When you've completed all prompts, compile all your answers and AI analyses for a comprehensive life review</li>
+                </ul>
             </div>
-            <div class="form-group">
-                <label for="expire">Expires In:</label>
-                <select name="expire" id="expire">
-                    <option value="1_day">1 Day</option>
-                    <option value="1_week">1 Week</option>
-                    <option value="1_month">1 Month</option>
-                </select>
+
+            <div class="progress-tracker">
+                <div class="progress-bar-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <p><span id="progress-percentage">0</span>% Complete</p>
             </div>
-            <div class="form-group">
-                <label for="password">Password (Optional):</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <div class="form-group">
-                <label for="burn_after_read">Burn After Reading:</label>
-                <input type="checkbox" name="burn_after_read" id="burn_after_read" value="1">
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create Paste">
-            </div>
-        </form>
-        <div id="resultMessage" class="form-group" style="margin-top: 20px;"></div>
-    </div>
+
+            <form id="workbook-form">
+                <!-- Category 1 -->
+                <div class="category">
+                    <h2>Category 1: Uncovering Your Authentic Blueprint</h2>
+                    <div class="prompt">
+                        <h3>1. The Unwritten Rules</h3>
+                        <p>The invisible prison bars you've built around your life might be the very thing blocking your manifestation power.</p>
+                        <div class="question">
+                            <label>What's one "rule" you find yourself following that you never consciously chose? (Think about statements that begin with "I should always..." or "I could never...")</label>
+                            <textarea id="q1" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>When did you first start believing this rule? Can you recall a specific moment or influence?</label>
+                            <textarea id="q2" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How does following this rule make you feel in your body? Where do you feel it physically?</label>
+                            <textarea id="q3" class="fill-in-block"></textarea>
+                        </div>
+                         <div class="question">
+                            <label>If this rule had a voice, what would it sound like? Whose voice might it resemble from your past?</label>
+                            <textarea id="q4" class="fill-in-block"></textarea>
+                        </div>
+                         <div class="question">
+                            <label>What would happen if you broke this rule? What's the fear behind it?</label>
+                            <textarea id="q5" class="fill-in-block"></textarea>
+                        </div>
+                         <div class="question">
+                            <label>How might this rule be affecting your ability to manifest what you truly desire?</label>
+                            <textarea id="q6" class="fill-in-block"></textarea>
+                        </div>
+                         <div class="question">
+                            <label>If you could rewrite this rule to serve your highest good, what would the new version be?</label>
+                            <textarea id="q7" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about my unwritten rules, please analyze how these unconscious rules might be affecting my manifestation ability and vibration. Identify any patterns or limiting beliefs, and suggest how I might reframe these rules to align better with what I truly desire."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q1-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write a declaration of independence from this rule. Begin with "I release myself from the belief that..." and end with "I now choose to believe..."</p>
+                            <textarea id="q1-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prompt 2 -->
+                <div class="prompt">
+                    <h3>2. The Echo Chamber</h3>
+                    <p>What if the 'you' you've become is just an echo of everyone else's expectations? Discover the real you hiding beneath the noise.</p>
+                    <div class="question">
+                        <label>If all external voices and expectations suddenly went silent, what would your own voice say about who you are?</label>
+                        <textarea id="q8" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>What activity makes you lose track of time completely? What does this reveal about your authentic self?</label>
+                        <textarea id="q9" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>What opinion or preference do you have that differs from your family or close friends? How freely do you express it?</label>
+                        <textarea id="q10" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>What part of yourself do you find yourself apologizing for or hiding from others?</label>
+                        <textarea id="q11" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>If you could live anywhere, doing anything, with no concern for money or others' approval, describe that life in detail.</label>
+                        <textarea id="q12" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>What's the gap between that vision and your current reality? Which elements feel most painful to be missing?</label>
+                        <textarea id="q13" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>What small step could you take this week to honor your authentic self, even if no one else notices or approves?</label>
+                        <textarea id="q14" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="ai-instructions">
+                        <h4>AI Analysis Instructions:</h4>
+                        <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about external expectations versus my authentic self, please analyze how my 'echo chamber' might be affecting my ability to live deeply and manifest authentically. Identify where I might be living according to others' expectations rather than my own truth, and suggest three specific ways I could begin to align more with my authentic self."</p>
+                        <label>AI Analysis Results: (Paste the AI's response here)</label>
+                        <textarea id="q2-ai" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="journaling-exercise">
+                        <h4>Journaling Exercise:</h4>
+                        <p>Write a letter from your future authentic self, describing how it feels to live aligned with your true nature and thanking your present self for the brave steps you're taking now.</p>
+                        <textarea id="q2-journal" class="fill-in-block"></textarea>
+                    </div>
+                </div>
+                <!-- End of Prompt 2 -->
+                <!-- Prompt 3 -->
+                <div class="prompt">
+                    <h3>3. Childhood Whispers</h3>
+                    <p>The dream you abandoned might hold the key to unlocking your highest vibrational state – are you brave enough to remember it?</p>
+                    <div class="question">
+                        <label>What was something you were passionate about as a child that made you feel alive and excited?</label>
+                        <textarea id="q15" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>At what point did you set this passion aside? What messages did you receive about it?</label>
+                        <textarea id="q16" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>If you close your eyes and remember yourself engaged in this activity, what emotions arise? Where do you feel them in your body?</label>
+                        <textarea id="q17" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>What core desire or value did this childhood interest represent for you? Was it freedom, creativity, connection, discovery, power?</label>
+                        <textarea id="q18" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>How might this abandoned passion be connected to what feels missing in your adult life now?</label>
+                        <textarea id="q19" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>What would it look like to reconnect with the essence of this passion, even if in a completely different form?</label>
+                        <textarea id="q20" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>What's one small way you could honor this part of yourself this week?</label>
+                        <textarea id="q21" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="ai-instructions">
+                        <h4>AI Analysis Instructions:</h4>
+                        <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about my childhood passions, please analyze how reconnecting with these abandoned interests might elevate my vibrational state and manifestation power. Identify the core values represented by these childhood interests and suggest specific ways I could integrate these values into my current life to feel more fulfilled and aligned."</p>
+                        <label>AI Analysis Results: (Paste the AI's response here)</label>
+                        <textarea id="q3-ai" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="journaling-exercise">
+                        <h4>Journaling Exercise:</h4>
+                        <p>Have a conversation on paper between your adult self and your childhood self about this passion. What does your child self want you to know? What wisdom can your adult self offer in return?</p>
+                        <textarea id="q3-journal" class="fill-in-block"></textarea>
+                    </div>
+                </div>
+                <!-- End of Prompt 3 -->
+
+                <!-- Prompt 4 -->
+                <div class="prompt">
+                    <h3>4. The Mask You Wear</h3>
+                    <p>The face you show the world might be blocking your manifestation power – what would happen if you finally took off the mask?</p>
+                    <div class="question">
+                        <label>In what situations do you feel you're "performing" rather than being your authentic self?</label>
+                        <textarea id="q22" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>Describe this "mask" or persona in detail – how does it speak, move, react to others?</label>
+                        <textarea id="q23" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>What are you afraid would happen if you dropped this mask in these situations?</label>
+                        <textarea id="q24" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>When was the first time you remember putting on this mask? What was happening in your life?</label>
+                        <textarea id="q25" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>Who in your life gets to see behind this mask? How does it feel when you're with them?</label>
+                        <textarea id="q26" class="fill-in-block"></textarea>.
+                    </div>
+                    <div class="question">
+                        <label>What does this mask protect you from experiencing? What might it also be preventing you from receiving?</label>
+                        <textarea id="q27" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>If your authentic self could speak directly to the people you wear this mask for, what would it say?</label>
+                        <textarea id="q28" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="ai-instructions">
+                        <h4>AI Analysis Instructions:</h4>
+                        <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about the masks I wear, please analyze how these personas might be affecting my ability to manifest authentically. Identify what fears or beliefs might be driving these masks, what energy they might be blocking, and suggest how I might begin to integrate my authentic self more fully into these situations."</p>
+                        <label>AI Analysis Results: (Paste the AI's response here)</label>
+                        <textarea id="q4-ai" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="journaling-exercise">
+                        <h4>Journaling Exercise:</h4>
+                        <p>Write a compassionate retirement speech for this mask, acknowledging how it has served you, and explaining why you're ready to release it now.</p>
+                        <textarea id="q4-journal" class="fill-in-block"></textarea>
+                    </div>
+                </div>
+                <!-- End of Prompt 4 -->
+
+                <!-- Prompt 5 -->
+                <div class="prompt">
+                    <h3>5. Your Unique Genius</h3>
+                    <p>The superpower you've been overlooking might be the exact key to unlocking your highest manifestation potential.</p>
+                    <div class="question">
+                        <label>What's something people often compliment you on that you tend to dismiss as "no big deal"?</label>
+                        <textarea id="q29" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>What do you find yourself helping others with, even when they don't explicitly ask?</label>
+                        <textarea id="q30" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>What activity feels so natural to you that you're surprised when others find it difficult?</label>
+                        <textarea id="q31" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>When have you received feedback that you have a special way of doing something that others find valuable?</label>
+                        <textarea id="q32" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>How might this natural ability be connected to your deeper purpose or contribution?</label>
+                        <textarea id="q33" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>In what unexpected contexts or careers might this natural genius be highly valued?</label>
+                        <textarea id="q34" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="question">
+                        <label>How could you amplify or develop this gift further? What resources or support would help?</label>
+                        <textarea id="q35" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="ai-instructions">
+                        <h4>AI Analysis Instructions:</h4>
+                        <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about my natural talents and abilities, please analyze how my unique genius might be connected to my life purpose and manifestation power. Identify patterns in how this genius expresses itself, suggest how it might be developed further, and explain how embracing this natural gift could elevate my vibrational state and manifestation ability."</p>
+                        <label>AI Analysis Results: (Paste the AI's response here)</label>
+                        <textarea id="q5-ai" class="fill-in-block"></textarea>
+                    </div>
+                    <div class="journaling-exercise">
+                        <h4>Journaling Exercise:</h4>
+                        <p>Imagine your natural genius as a special power that flows through you. Write about how it feels when you're expressing it, where it comes from, and how it might evolve if you gave it more conscious attention.</p>
+                        <textarea id="q5-journal" class="fill-in-block"></textarea>
+                    </div>
+                </div>
+                <!-- End of Prompt 5 -->
+                </div>
+                <div class="category">
+                    <h2>Category 2: Navigating Your Inner Landscape</h2>
+                    <!-- Prompt 6 -->
+                    <div class="prompt">
+                        <h3>6. The Shadow's Gift</h3>
+                        <p>The trait you can't stand in others might be the hidden key to your own power – are you brave enough to look in this mirror?</p>
+                        <div class="question">
+                            <label>Who is someone (could be a public figure or someone you know) who really triggers or irritates you? What specific quality about them bothers you most?</label>
+                            <textarea id="q36" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>When you observe this quality in action, what physical sensations arise in your body? Where exactly do you feel them?</label>
+                            <textarea id="q37" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>When have you ever exhibited a similar quality, even in a small way? How did it feel?</label>
+                            <textarea id="q38" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What might be a positive aspect or strength of this very same quality in a different context?</label>
+                            <textarea id="q39" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How might denying or rejecting this quality in yourself be limiting your full expression or power?</label>
+                            <textarea id="q40" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>If you were to reclaim and integrate this quality in a healthy way, how might it serve you?</label>
+                            <textarea id="q41" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What small experiment could you try to express this quality in a controlled, positive way?</label>
+                            <textarea id="q42" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about shadow traits that trigger me in others, please analyze what these triggers might reveal about my own disowned qualities. Explain how integrating these shadow aspects might enhance my personal power and manifestation ability, and suggest specific ways I could begin to reclaim these qualities in a healthy, balanced way."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q6-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write a dialogue between yourself and this shadow quality, asking what it wants, what it needs, and how it might transform if given space to express itself constructively.</p>
+                            <textarea id="q6-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write a dialogue between yourself and this shadow quality, asking what it wants, what it needs, and how it might transform if given space to express itself constructively.</p>
+                            <textarea id="q6-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <!-- Prompt 7 -->
+                    <div class="prompt">
+                        <h3>7. Emotional Alchemy</h3>
+                        <p>The emotion you've been fighting might be the exact doorway to the manifestation breakthrough you've been seeking.</p>
+                        <div class="question">
+                            <label>What's an uncomfortable emotion that keeps showing up in your life? When did you last experience it strongly?</label>
+                            <textarea id="q43" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>If this emotion had a shape, color, texture, and weight, how would you describe it?</label>
+                            <textarea id="q44" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>If this emotion could speak, what would be its first words to you? What is it trying to tell you?</label>
+                            <textarea id="q45" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>When did you first remember feeling this emotion intensely? What was happening then?</label>
+                            <textarea id="q46" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What happens when you try to avoid or suppress this emotion? Where does that energy go?</label>
+                            <textarea id="q47" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What unmet need might this emotion be pointing to? What does it want for you?</label>
+                            <textarea id="q48" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How might befriending rather than fighting this emotion change your relationship with it?</label>
+                            <textarea id="q49" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about a recurring difficult emotion, please analyze what this emotion might be trying to communicate to me. Explain how my relationship with this emotion might be affecting my vibrational state and manifestation ability, and suggest specific ways I could transform my relationship with this emotion to unlock greater manifestation power."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q7-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write a letter of appreciation to this emotion, acknowledging its purpose in your life and describing how you plan to work with it rather than against it going forward.</p>
+                            <textarea id="q7-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <!-- Prompt 8 -->
+                    <div class="prompt">
+                        <h3>8. The Inner Critic's Origin Story</h3>
+                        <p>The voice that tears you down has a secret origin story – discover it and you'll finally break free from its power.</p>
+                        <div class="question">
+                            <label>What are the most common phrases or messages your inner critic uses against you? Write down 2-3 exact quotes.</label>
+                            <textarea id="q50" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>Whose voice does your inner critic remind you of? Is it similar to someone from your past?</label>
+                            <textarea id="q51" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>When did you first remember hearing these kinds of critical messages? How old were you?</label>
+                            <textarea id="q52" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What was happening in your life when this critical voice became prominent?</label>
+                            <textarea id="q53" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How has this inner critic been trying to protect you, even if in a misguided way?</label>
+                            <textarea id="q54" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What would happen if you listened to this critic less? What's the fear behind letting go?</label>
+                            <textarea id="q55" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>If you could give this inner critic a new job that actually supports you, what would it be?</label>
+                            <textarea id="q56" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about my inner critic, please analyze the origin and purpose of this critical voice in my life. Explain how it might be affecting my vibrational state and manifestation ability, and suggest how I might transform this inner critic into a supportive ally rather than a saboteur."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q8-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write a new job description for your inner critic, transforming it from harsh judge to supportive coach. Be specific about its new responsibilities and boundaries.</p>
+                            <textarea id="q8-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <!-- Prompt 9 -->
+                    <div class="prompt">
+                        <h3>9. Body Wisdom</h3>
+                        <p>Your body is screaming a message that could transform your manifestation power – but are you listening to the right frequency?</p>
+                        <div class="question">
+                            <label>Where in your body do you currently feel tension, discomfort, or a noticeable sensation? Describe it in detail.</label>
+                            <textarea id="q57" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>If you focus on this sensation with curiosity rather than judgment, does it change or shift in any way?</label>
+                            <textarea id="q58" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>If this physical sensation had a voice, what would it say to you right now?</label>
+                            <textarea id="q59" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>When did you first notice this sensation? What was happening in your life at that time?</label>
+                            <textarea id="q60" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What happens when you try to ignore or push away this sensation? Does it change or intensify?</label>
+                            <textarea id="q61" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How might this physical experience be connected to your emotional state or life circumstances?</label>
+                            <textarea id="q62" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What might your body be asking for through this sensation? Rest, movement, boundaries, expression?</label>
+                            <textarea id="q63" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about physical sensations in my body, please analyze what messages my body might be trying to communicate. Explain how these physical signals might be connected to my emotional state and manifestation ability, and suggest specific ways I could better honor my body's wisdom to enhance my vibrational alignment."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q9-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Have a written conversation with this part of your body, asking what it needs, what it's trying to tell you, and how you can better honor its wisdom.</p>
+                            <textarea id="q9-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <!-- Prompt 10 -->
+                    <div class="prompt">
+                        <h3>10. The Energetic Signature</h3>
+                        <p>Your invisible energy field might be repelling the very things you're trying to manifest – discover how to shift your frequency now.</p>
+                        <div class="question">
+                            <label>If people could see your energy as a color or pattern, what would they see on your best days? Your worst days?</label>
+                            <textarea id="q64" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What feedback have you received about the "vibe" you give off to others? What surprises you about this feedback?</label>
+                            <textarea id="q65" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>When you enter a room, what energy do you typically notice yourself bringing? How do others respond?</label>
+                            <textarea id="q66" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What situations or people seem to drain your energy most quickly? What might this reveal?</label>
+                            <textarea id="q67" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>When do you feel your energy is most magnetic and alive? Describe those circumstances in detail.</label>
+                            <textarea id="q68" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How aligned is your current energetic signature with what you're trying to attract or manifest?</label>
+                            <textarea id="q69" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What one shift in your daily routine would most positively impact your energetic signature?</label>
+                            <textarea id="q70" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about my energetic signature, please analyze how my current energy might be affecting what I attract and manifest. Identify patterns in when my energy feels aligned versus depleted, and suggest specific practices that would help me cultivate a more magnetic, aligned energetic state for powerful manifestation."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q10-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write a detailed description of your ideal energetic signature – how it feels internally, how others experience it, and what it naturally attracts. Then identify three small daily practices that would help you embody this energy more consistently.</p>
+                            <textarea id="q10-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <div class="prompt">
+                        <h3>10. The Energetic Signature</h3>
+                        <p>Your invisible energy field might be repelling the very things you're trying to manifest – discover how to shift your frequency now.</p>
+                        <div class="question">
+                            <label>If people could see your energy as a color or pattern, what would they see on your best days? Your worst days?</label>
+                            <textarea id="q64" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What feedback have you received about the "vibe" you give off to others? What surprises you about this feedback?</label>
+                            <textarea id="q65" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>When you enter a room, what energy do you typically notice yourself bringing? How do others respond?</label>
+                            <textarea id="q66" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What situations or people seem to drain your energy most quickly? What might this reveal?</label>
+                            <textarea id="q67" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>When do you feel your energy is most magnetic and alive? Describe those circumstances in detail.</label>
+                            <textarea id="q68" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How aligned is your current energetic signature with what you're trying to attract or manifest?</label>
+                            <textarea id="q69" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What one shift in your daily routine would most positively impact your energetic signature?</label>
+                            <textarea id="q70" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about my energetic signature, please analyze how my current energy might be affecting what I attract and manifest. Identify patterns in when my energy feels aligned versus depleted, and suggest specific practices that would help me cultivate a more magnetic, aligned energetic state for powerful manifestation."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q10-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write a detailed description of your ideal energetic signature – how it feels internally, how others experience it, and what it naturally attracts. Then identify three small daily practices that would help you embody this energy more consistently.</p>
+                            <textarea id="q10-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h2>Category 3: Expanding Your Perception of Reality</h2>
+                    <!-- Prompt 11 -->
+                    <div class="prompt">
+                        <h3>11. The Illusion of Separation</h3>
+                        <p>The walls between you and everything you desire might be completely imaginary – here's how to dissolve them forever.</p>
+                        <div class="question">
+                            <label>Describe a moment when you felt deeply connected to something larger than yourself. What were the circumstances?</label>
+                            <textarea id="q71" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What physical sensations accompanied this experience of connection? Where in your body did you feel it most strongly?</label>
+                            <textarea id="q72" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How did your perception of time change during this experience?</label>
+                            <textarea id="q73" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How did this experience affect your sense of self and your boundaries?</label>
+                            <textarea id="q74" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What insights or understandings emerged from this experience that you couldn't access in your normal state?</label>
+                            <textarea id="q75" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How did this experience change your perspective on what's possible in your life?</label>
+                            <textarea id="q76" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What practices or conditions seem to facilitate this sense of connection for you?</label>
+                            <textarea id="q77" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about experiences of deep connection, please analyze how these moments of transcending separation might enhance my manifestation ability. Explain how I might cultivate this sense of connection more regularly, and how doing so could transform my relationship with reality and what I'm able to manifest."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q11-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write about how your life might transform if you could maintain this sense of connection in your everyday experiences. What would change in your relationships, work, and personal practices?</p>
+                            <textarea id="q11-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <!-- Prompt 12 -->
+                    <div class="prompt">
+                        <h3>12. Synchronicity's Message</h3>
+                        <p>That 'coincidence' wasn't random – it was the universe sending you a coded message about your manifestation power.</p>
+                        <div class="question">
+                            <label>Describe a meaningful coincidence or synchronicity you've experienced that felt significant. What exactly happened?</label>
+                            <textarea id="q78" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What were you thinking about or focusing on just before this synchronicity occurred?</label>
+                            <textarea id="q79" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What was your emotional state when this synchronicity appeared in your life?</label>
+                            <textarea id="q80" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What immediate interpretation or meaning did you assign to this event?</label>
+                            <textarea id="q81" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What symbols or elements in this synchronicity might have personal significance for you?</label>
+                            <textarea id="q82" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How might this synchronicity be connected to your current life path or decisions?</label>
+                            <textarea id="q83" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What action or shift in perspective did this synchronicity seem to be guiding you toward?</label>
+                            <textarea id="q84" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about a meaningful synchronicity, please analyze what message the universe might have been sending me through this experience. Decode the symbolic elements of this synchronicity, explain how it might relate to my current path, and suggest how I might become more receptive to such guidance to enhance my manifestation ability."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q12-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Imagine this synchronicity as a direct message from the universe. Write a detailed interpretation of what it might be trying to tell you about your path forward.</p>
+                            <textarea id="q12-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <!-- Prompt 13 -->
+                    <div class="prompt">
+                        <h3>13. The Road Not Taken (Reimagined)</h3>
+                        <p>The path you didn't choose still exists in parallel – and it holds the secret to unlocking your highest manifestation potential.</p>
+                        <div class="question">
+                            <label>What was a significant crossroads in your life where you chose one path over another? Describe both options in detail.</label>
+                            <textarea id="q85" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What values or priorities guided your decision at that time? What factors weighed most heavily?</label>
+                            <textarea id="q86" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How do you feel when you reflect on this decision now? Any lingering emotions about the path not taken?</label>
+                            <textarea id="q87" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What qualities, experiences, or growth might the unchosen path have offered you?</label>
+                            <textarea id="q88" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What have you learned or how have you grown specifically because of the path you did choose?</label>
+                            <textarea id="q89" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What aspects of that "road not taken" self do you still long for or feel drawn to?</label>
+                            <textarea id="q90" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How might you honor or integrate elements of that unchosen path into your current life?</label>
+                            <textarea id="q91" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about a significant life choice, please analyze what my 'road not taken' might reveal about my values, desires, and potential. Identify qualities or experiences from that unchosen path that might enhance my current life if integrated, and suggest specific ways I could honor these aspects while continuing on my chosen path."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q13-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write a letter to your "road not taken" self, acknowledging what you admire about that version of you, and exploring how you might bring those qualities into your current path.</p>
+                            <textarea id="q13-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <!-- Prompt 14 -->
+                    <div class="prompt">
+                        <h3>14. Future Self Dialogue</h3>
+                        <p>Your future self has already overcome everything you're struggling with – here's how to access their wisdom right now.</p>
+                        <div class="question">
+                            <label>Close your eyes and imagine meeting your future self 20 years from now. Where are you meeting? What does this future self look like, how do they carry themselves?</label>
+                            <textarea id="q92" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What's the first thing you notice about your future self's energy or presence? What feels different from how you are now?</label>
+                            <textarea id="q93" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What has this future self accomplished or overcome that you're currently struggling with?</label>
+                            <textarea id="q94" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What question would you most want to ask your future self about your current challenges?</label>
+                            <textarea id="q95" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What would surprise you most about how your future self has evolved or what they prioritize?</label>
+                            <textarea id="q96" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What specific advice would your future self offer about a decision you're facing right now?</label>
+                            <textarea id="q97" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What daily practice would your future self recommend that would most transform your current experience?</label>
+                            <textarea id="q98" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about my future self, please analyze what this vision reveals about my deeper values, aspirations, and potential. Channel the wisdom of this future self to offer guidance on my current challenges, and suggest specific practices that would help me align with this evolved version of myself to enhance my manifestation power now."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q14-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write a detailed letter from your future self to your present self, offering wisdom, reassurance, and specific guidance on your current path.</p>
+                            <textarea id="q14-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <!-- Prompt 15 -->
+                    <div class="prompt">
+                        <h3>15. Beyond the Five Senses</h3>
+                        <p>The intuitive hits you've been ignoring might be the exact guidance you need to manifest your deepest desires.</p>
+                        <div class="question">
+                            <label>Describe a time when you had a strong intuition or "knowing" that proved to be accurate. What exactly did you experience?</label>
+                            <textarea id="q99" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How did this intuitive information come to you? Was it a feeling, image, voice, or something else?</label>
+                            <textarea id="q100" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>Where in your body do you typically feel intuitive signals? What physical sensations accompany them?</label>
+                            <textarea id="q101" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What happens when you ignore or dismiss these intuitive hits? Can you recall a specific example?</label>
+                            <textarea id="q102" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>In what areas of your life does your intuition seem strongest or most reliable?</label>
+                            <textarea id="q103" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What tends to interfere with or block your ability to access this intuitive knowing?</label>
+                            <textarea id="q104" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What would change in your life if you trusted and acted on your intuition more consistently?</label>
+                            <textarea id="q105" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about intuition, please analyze my unique intuitive style and how I might develop it further. Explain how strengthening my connection to my intuition could enhance my manifestation ability, and suggest specific practices that would help me trust and act on my intuitive guidance more consistently."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q15-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Keep an "intuition journal" for one week, recording every intuitive hit you receive, whether you follow it or not, and the outcome. Look for patterns in how your intuition communicates with you.</p>
+                            <textarea id="q15-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <div class="prompt">
+                        <h3>15. Beyond the Five Senses</h3>
+                        <p>The intuitive hits you've been ignoring might be the exact guidance you need to manifest your deepest desires.</p>
+                        <div class="question">
+                            <label>Describe a time when you had a strong intuition or "knowing" that proved to be accurate. What exactly did you experience?</label>
+                            <textarea id="q99" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How did this intuitive information come to you? Was it a feeling, image, voice, or something else?</label>
+                            <textarea id="q100" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>Where in your body do you typically feel intuitive signals? What physical sensations accompany them?</label>
+                            <textarea id="q101" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What happens when you ignore or dismiss these intuitive hits? Can you recall a specific example?</label>
+                            <textarea id="q102" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>In what areas of your life does your intuition seem strongest or most reliable?</label>
+                            <textarea id="q103" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What tends to interfere with or block your ability to access this intuitive knowing?</label>
+                            <textarea id="q104" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What would change in your life if you trusted and acted on your intuition more consistently?</label>
+                            <textarea id="q105" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about intuition, please analyze my unique intuitive style and how I might develop it further. Explain how strengthening my connection to my intuition could enhance my manifestation ability, and suggest specific practices that would help me trust and act on my intuitive guidance more consistently."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q15-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Keep an "intuition journal" for one week, recording every intuitive hit you receive, whether you follow it or not, and the outcome. Look for patterns in how your intuition communicates with you.</p>
+                            <textarea id="q15-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h2>Category 4: Crafting a Life of Deep Meaning & Manifestation</h2>
+                    <!-- Prompt 16 -->
+                    <div class="prompt">
+                        <h3>16. The Legacy of Your Heart</h3>
+                        <p>The emotional fingerprint you leave behind might be your most powerful creation – what imprint are you making right now?</p>
+                        <div class="question">
+                            <label>When you're gone, how do you want people to feel when they think of you? What emotions do you want your memory to evoke?</label>
+                            <textarea id="q106" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What quality or way of being do you most want to be remembered for? Why is this particular quality important to you?</label>
+                            <textarea id="q107" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>Who has left this kind of emotional legacy for you? How did they accomplish it?</label>
+                            <textarea id="q108" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What daily interactions give you the opportunity to create this emotional impact? How often do you take advantage of these moments?</label>
+                            <textarea id="q109" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What patterns or habits in your current life align with this heart-legacy? Which ones contradict it?</label>
+                            <textarea id="q110" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What's one relationship where you could more intentionally create this emotional legacy starting today?</label>
+                            <textarea id="q111" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What's one small ritual or practice you could establish that would help build this legacy consistently?</label>
+                            <textarea id="q112" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about my heart-legacy, please analyze how aligned my current actions and energy are with the emotional impact I want to leave behind. Identify specific opportunities where I could more intentionally create this legacy, and suggest daily practices that would help me consistently embody the qualities I want to be remembered for."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q16-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write your own "legacy of the heart" statement, describing in vivid emotional detail the impact you want your life to have on others. Then identify three specific ways you can embody this legacy in your interactions this week.</p>
+                            <textarea id="q16-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <!-- Prompt 17 -->
+                    <div class="prompt">
+                        <h3>17. Redefining Success</h3>
+                        <p>The definition of success you've been chasing might be the very thing blocking your true abundance – time to rewrite the rules.</p>
+                        <div class="question">
+                            <label>Complete this sentence honestly: "I will know I'm successful when..."</label>
+                            <textarea id="q113" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>Where did this definition of success come from? Whose voice or influence do you recognize in it?</label>
+                            <textarea id="q114" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How does pursuing this version of success make you feel in your body? Where do you feel it physically?</label>
+                            <textarea id="q115" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What parts of this definition truly resonate with your authentic self? What parts feel externally imposed?</label>
+                            <textarea id="q116" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What would success look like if it was measured by how you feel rather than what you achieve or acquire?</label>
+                            <textarea id="q117" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What would you pursue or prioritize differently if your definition of success changed?</label>
+                            <textarea id="q118" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What's one belief about success that you're ready to release? What new belief would you like to adopt?</label>
+                            <textarea id="q119" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about my definition of success, please analyze how my current success metrics might be affecting my manifestation ability and overall fulfillment. Identify any limiting beliefs embedded in my definition, and suggest how reframing my understanding of success could open new pathways for abundance and alignment."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q17-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write your personal success manifesto, defining success entirely on your own terms. Include how you want to feel, what you want to experience, and the impact you want to have, rather than just what you want to achieve or acquire.</p>
+                            <textarea id="q17-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <!-- Prompt 18 -->
+                    <div class="prompt">
+                        <h3>18. The Vibration of Your Desires</h3>
+                        <p>You've been manifesting backward – discover how to embody the feeling first and watch your desires materialize.</p>
+                        <div class="question">
+                            <label>Think of something you deeply desire to manifest. Beyond the thing itself, what feeling state do you believe having it will bring you?</label>
+                            <textarea id="q120" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>When have you experienced this feeling state in the past, even briefly? Describe that experience in detail.</label>
+                            <textarea id="q121" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How does it feel in your body when you imagine already having this desire fulfilled? Where specifically do you feel it?</label>
+                            <textarea id="q122" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What currently blocks you from experiencing this feeling state in your daily life?</label>
+                            <textarea id="q123" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What small experience could you create today that would give you a taste of this desired feeling?</label>
+                            <textarea id="q124" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How might your manifestation process change if you focused on generating this feeling first, rather than obtaining the external thing?</label>
+                            <textarea id="q125" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What daily practice would help you embody this feeling state more consistently?</label>
+                            <textarea id="q126" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about the feeling state of my desires, please analyze how shifting my focus from the external object to the internal feeling might transform my manifestation process. Suggest specific ways I could generate this feeling state more consistently, and explain how this vibrational alignment might accelerate the manifestation of my desires."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q18-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Create a detailed sensory description of yourself already living in the feeling state of your fulfilled desire. Write in present tense, including physical sensations, emotions, thoughts, and how you move through the world in this state.</p>
+                            <textarea id="q18-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <!-- Prompt 19 -->
+                    <div class="prompt">
+                        <h3>19. The Uncomfortable Growth Zone</h3>
+                        <p>The comfort zone that feels so safe might be the invisible cage blocking everything you want to manifest.</p>
+                        <div class="question">
+                            <label>In what area of your life do you feel most comfortable but perhaps stagnant? What's become too predictable or easy?</label>
+                            <textarea id="q127" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What emotions arise when you consider stepping beyond this comfort zone? Where do you feel them in your body?</label>
+                            <textarea id="q128" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What specific growth or opportunity might be waiting just beyond this comfortable territory?</label>
+                            <textarea id="q129" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What's the earliest memory you have of staying in your comfort zone to avoid discomfort? What happened?</label>
+                            <textarea id="q130" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What's the potential cost of remaining in this comfort zone for another year? Five years?</label>
+                            <textarea id="q131" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What small, manageable step could you take to stretch beyond this comfort zone?</label>
+                            <textarea id="q132" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What support or resources would help you navigate the discomfort of this growth?</label>
+                            <textarea id="q133" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about my comfort zone, please analyze how staying in this safe territory might be limiting my growth and manifestation ability. Identify the specific fears or beliefs that keep me confined to this comfort zone, and suggest a graduated approach to expanding my boundaries that balances challenge with support."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q19-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Design a personal "discomfort challenge" with three levels: beginner (slightly uncomfortable), intermediate (moderately uncomfortable), and advanced (significantly uncomfortable). Detail exactly what actions each level involves and commit to at least the beginner level this week.</p>
+                            <textarea id="q19-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <!-- Prompt 20 -->
+                    <div class="prompt">
+                        <h3>20. The Art of Letting Go</h3>
+                        <p>The thing you're clutching most tightly might be the very anchor dragging down your manifestation power.</p>
+                        <div class="question">
+                            <label>What are you holding onto that you know, deep down, it's time to release? This could be a relationship, belief, habit, goal, or possession.</label>
+                            <textarea id="q134" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How does holding onto this affect you physically? Where do you feel the weight or tension in your body?</label>
+                            <textarea id="q135" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What emotions arise when you imagine fully releasing this? Fear, relief, grief, excitement?</label>
+                            <textarea id="q136" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What purpose has holding onto this served in your life? How has it protected or helped you?</label>
+                            <textarea id="q137" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What would become possible in your life if you released this completely?</label>
+                            <textarea id="q138" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What's one small step you could take toward loosening your grip on this?</label>
+                            <textarea id="q139" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What support or ritual might help you honor this release process?</label>
+                            <textarea id="q140" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about something I need to release, please analyze how holding onto this might be affecting my energy and manifestation ability. Explain the potential transformation that could occur through letting go, and suggest a compassionate, step-by-step process for release that honors both the attachment and the need for growth."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q20-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write a release ceremony for what you're letting go. Include what you're grateful for about its role in your life, why you're ready to release it now, and how you'll mark this transition. Consider actually performing this ceremony when you feel ready.</p>
+                            <textarea id="q20-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                    <!-- Prompt 21 -->
+                    <div class="prompt">
+                        <h3>21. Your Unique Contribution</h3>
+                        <p>The world is missing the medicine only you can provide – are you brave enough to offer your unique gift?</p>
+                        <div class="question">
+                            <label>When you're at your best—fully lit up, fully you—what are you doing? Who are you helping, and how do they feel afterward?</label>
+                            <textarea id="q141" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What's something people always come to you for—even if they don't say it out loud? (Think energy, wisdom, clarity, fire, safety, inspiration, etc.)</label>
+                            <textarea id="q142" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What breaks your heart and fires you up to take action? What injustice, gap, or ache do you feel called to respond to with your life?</label>
+                            <textarea id="q143" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What unique combination of experiences, perspectives, and gifts do you bring that no one else has in exactly the same way?</label>
+                            <textarea id="q144" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>How might your wounds or struggles have prepared you to offer something meaningful to others?</label>
+                            <textarea id="q145" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What contribution feels so natural to you that you might discount its value or power?</label>
+                            <textarea id="q146" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="question">
+                            <label>What's one small way you could express this unique contribution more intentionally this week?</label>
+                            <textarea id="q147" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="ai-instructions">
+                            <h4>AI Analysis Instructions:</h4>
+                            <p>Copy everything above including your answers and paste it into an AI chat with this instruction: "Based on my answers about my unique contribution, please analyze what my responses reveal about my purpose and the specific gift I'm meant to share with the world. Identify patterns in when I feel most alive and purposeful, and suggest specific ways I could express this unique contribution more powerfully and consistently."</p>
+                            <label>AI Analysis Results: (Paste the AI's response here)</label>
+                            <textarea id="q21-ai" class="fill-in-block"></textarea>
+                        </div>
+                        <div class="journaling-exercise">
+                            <h4>Journaling Exercise:</h4>
+                            <p>Write about a time when you expressed your unique contribution and witnessed its positive impact. Then identify three specific contexts or communities where this contribution is especially needed, and how you might engage with them.</p>
+                            <textarea id="q21-journal" class="fill-in-block"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <button id="download-pdf">Download as PDF</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Blissfully Living</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
-<footer class="site-footer">
-   <p>Minimal, open source, private and free pastebin from <a href="https://witty.computer">Witty Computer</a></p>
-  <div style="text-align: center;">
-  <a href="https://witty.computer/images/logopaste.png" target="_blank">
-    <img src="/images/logopaste.png" alt="Logo">
-  </a>
-</div>
-  <div style="text-align: center; margin-top: 10px; display: flex; align-items: center; justify-content: center;">
-    <a href="https://github.com/wittycomputer2/pastebintest/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; text-decoration: none;">
-      <img src="images/github-logo.svg" alt="GitHub Logo" style="height: 24px; width: 24px;">
-    </a>
-  </div>
-</footer>
 </body>
 </html>

@@ -1,192 +1,207 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
-body {
-    font-family: "IBM Plex Mono", monospace;
-    margin: 20px;
-    background-color: #292929;
-    color: white;
+/* Reset and base styles */
+:root {
+    /* Primary Colors */
+    --primary-purple: #663399;
+    --primary-purple-light: #9966cc;
+    --accent-gold: #d4af37;
+    --accent-gold-light: #f4d03f;
+
+    /* Neutral Colors */
+    --white: #ffffff;
+    --light-gray: #fafafa;
+    --medium-gray: #e6e6e6;
+    --text-gray: #4a4a4a;
+
+    /* Gradient Combinations */
+    --gradient-purple: linear-gradient(135deg, #663399 0%, #9966cc 100%);
+    --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+    --gradient-background: linear-gradient(135deg, #f8f6ff 0%, #ffffff 100%);
+
+    /* Font Families */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Source Sans Pro', sans-serif;
+
+    /* Font Sizes */
+    --h1-size: 3.5em;
+    --h2-size: 2.2em;
+    --h3-size: 1.6em;
+    --body-size: 1em;
+    --small-size: 0.9em;
+
+    /* Font Weights */
+    --weight-light: 300;
+    --weight-normal: 400;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+    /* Spacing System */
+    --space-xs: 8px;
+    --space-sm: 15px;
+    --space-md: 25px;
+    --space-lg: 40px;
+    --space-xl: 60px;
+
+    /* Component spacing */
+    --section-padding: 50px 40px;
+    --content-max-width: 800px;
+    --border-radius: 15px;
 }
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    color: var(--text-gray);
+    background: var(--gradient-background);
+    margin: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-bold);
+    color: var(--primary-purple);
+}
+
+h1 { font-size: var(--h1-size); }
+h2 { font-size: var(--h2-size); }
+h3 { font-size: var(--h3-size); }
 
 .container {
-    background-color: #333;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border: 1px solid #444;
-    width: 80%; /* Or a max-width like 960px */
-    max-width: 960px; /* Set a max-width for larger screens */
-    margin-left: auto;
-    margin-right: auto;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--space-lg);
 }
 
-/* Remove generic block display for more specific control within form-group */
-/*
-label,
-input,
-textarea,
-select {
+header {
+    background: var(--gradient-purple);
+    color: var(--white);
+    padding: var(--section-padding);
+    text-align: center;
+}
+
+header h1 {
+    color: var(--white);
+    margin-bottom: var(--space-sm);
+}
+
+.subtitle {
+    font-size: 1.2em;
+    font-weight: var(--weight-light);
+    opacity: 0.9;
+}
+
+.introduction, .category, .prompt {
+    margin-bottom: var(--space-lg);
+}
+
+.progress-tracker {
+    margin-bottom: var(--space-lg);
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: var(--medium-gray);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 20px;
+    background: var(--gradient-gold);
+    transition: width 0.5s ease-in-out;
+}
+
+#progress-percentage {
+    font-weight: var(--weight-bold);
+    color: var(--primary-purple);
+}
+
+.question {
+    margin-bottom: var(--space-md);
+}
+
+.question label {
     display: block;
-    margin-bottom: 10px;
-}
-*/
-
-textarea,
-input[type="text"],
-input[type="password"],
-select {
-    background-color: #444;
-    color: white;
-    border: 1px solid #555;
-    padding: 8px; /* Added padding for better appearance */
-    border-radius: 4px; /* Added border-radius */
-    box-sizing: border-box; /* Ensures padding doesn't expand element size */
+    margin-bottom: var(--space-xs);
+    font-weight: var(--weight-semibold);
 }
 
-textarea {
-    width: 100%; /* Default to full width within its container */
-    min-height: 150px;
-    margin-bottom: 10px; /* Retain some bottom margin */
-}
-
-input[type="text"], /* Specific input types */
-input[type="password"],
-select {
-    width: 100%; /* Default to full width */
-    margin-bottom: 10px; /* Retain some bottom margin */
-}
-
-
-input[type="submit"] {
-    background-color: #e6e77d;
-    color: #292929;
-    padding: 10px 15px;
+.fill-in {
     border: none;
-    border-radius: 4px;
+    border-bottom: 2px solid var(--accent-gold);
+    background: transparent;
+    padding: 8px 0;
+    font-size: 1em;
+    color: var(--primary-purple);
+    min-width: 150px;
+}
+
+.fill-in:focus {
+    border-bottom-color: var(--primary-purple);
+    outline: none;
+}
+
+.fill-in-block {
+    width: 100%;
+    border: 2px solid var(--accent-gold);
+    border-radius: 8px;
+    padding: var(--space-sm);
+    min-height: 80px;
+    font-family: var(--font-body);
+    resize: vertical;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.fill-in-block:focus {
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 10px rgba(102, 51, 153, 0.2);
+    outline: none;
+}
+
+.ai-instructions, .journaling-exercise {
+    background-color: var(--light-gray);
+    padding: var(--space-md);
+    border-radius: var(--border-radius);
+    margin-top: var(--space-md);
+}
+
+button {
+    background: var(--gradient-purple);
+    color: var(--white);
+    border: none;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 8px;
     cursor: pointer;
-    margin-top: 20px; /* Submit Button Spacing */
+    font-size: 1.1em;
+    font-weight: var(--weight-semibold);
 }
 
-input[type="submit"]:hover {
-    background-color: #d4d56f;
+button:hover {
+    opacity: 0.9;
 }
 
-a {
-    color: #e6e77d;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block; /* Default for mobile */
-    margin-bottom: 5px; /* Space between label and input on mobile */
-}
-
-.form-group input[type="checkbox"] {
-    /* Basic styling for checkbox, can be enhanced */
-    display: inline-block; /* Align with label text if possible */
-    width: auto;
-    margin-right: 5px;
-    vertical-align: middle;
-}
-
-
-@media (min-width: 768px) {
-    .form-group label {
-        display: inline-block;
-        width: 180px;
-        vertical-align: top;
-        margin-right: 10px;
-        margin-bottom: 0; /* Remove bottom margin for desktop */
-    }
-
-    .form-group textarea,
-    .form-group input[type="text"],
-    .form-group input[type="password"],
-    .form-group select {
-        display: inline-block;
-        width: calc(100% - 200px); /* (180px label + 10px margin + 10px buffer) */
-        vertical-align: top;
-        margin-bottom: 0; /* Remove bottom margin for desktop */
-    }
-
-    .form-group input[type="checkbox"] {
-        /* Already inline-block, ensure proper alignment */
-        margin-top: 5px; /* Adjust if needed for vertical alignment with label */
-        vertical-align: middle; /* Re-affirm */
-    }
-
-    /* Adjust textarea width specifically if calc is problematic, or for preference */
-    /* .form-group textarea {
-        width: calc(100% - 200px);
-    } */
-}
-
-.main-title {
-  font-size: 1.5em; /* Smaller than default h1, adjust as needed */
-  text-transform: uppercase;
-  text-align: center; /* Added for centering as per later plan step */
-}
-
-.create-paste-title {
-  color: #e6e77d;
-  text-align: center; /* Added for centering as per later plan step */
-}
-
-footer img {
-  margin-top: 20px; /* Add space above the image */
+#download-pdf {
+    display: block;
+    margin: var(--space-lg) auto 0;
 }
 
 footer {
-  text-align: center;
-  margin-top: 30px; /* Add some space above the footer block */
+    text-align: center;
+    padding: var(--space-lg);
+    margin-top: var(--space-xl);
+    color: var(--text-gray);
 }
 
-pre.paste-content-wrapper {
-  background-color: #444; /* Light grey, similar to inputs */
-  color: white;
-  padding: 15px;
-  border-radius: 4px;
-  white-space: pre-wrap; /* Ensures long lines wrap */
-  word-wrap: break-word; /* Breaks long words if necessary */
-  border: 1px solid #555; /* Optional: similar to inputs */
-  text-align: left; /* Ensure paste content is left-aligned */
-}
+@media (max-width: 768px) {
+    :root {
+        --h1-size: 2.5em;
+        --h2-size: 1.8em;
+        --h3-size: 1.4em;
+        --section-padding: 30px 20px;
+    }
 
-.container h2 {
-  text-align: center;
-  margin-top: 25px;
-  margin-bottom: 15px;
-  font-weight: normal; /* Less emphasis than h1 */
-}
-
-.create-new-link-p {
-  text-align: center;
-  margin-top: 20px; /* Space after hr */
-  margin-bottom: 20px; /* Space before footer or bottom of container */
-}
-
-.site-footer {
-  text-align: center;
-  margin-top: 30px;
-  padding: 15px;
-  font-size: 0.85em; /* Smaller font size */
-  color: #aaa; /* Lighter color for less emphasis */
-}
-
-.site-footer p {
-  margin: 5px 0; /* Adjust spacing between paragraphs in footer */
-}
-
-.site-footer a {
-  color: #ccc; /* Slightly brighter link color for readability */
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-}
-
-.site-footer div {
-  margin-top: 10px; /* Add some space above the div containing the image */
+    .container {
+        padding: var(--space-md);
+    }
 }
