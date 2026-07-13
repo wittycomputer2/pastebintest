@@ -1,0 +1,12 @@
+{
+    "id": "696e6bbc318142a58d6f4",
+    "content": "Tresgatit0$",
+    "expiration_timestamp": 1768930620,
+    "password_hash": null,
+    "burn_after_read": false,
+    "created_at": 1768844220,
+    "encryption_salt": null,
+    "encryption_iv": null,
+    "is_encrypted": false,
+    "kdf_iterations": 600000
+}

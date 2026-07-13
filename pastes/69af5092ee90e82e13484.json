@@ -1,0 +1,12 @@
+{
+    "id": "69af5092ee90e82e13484",
+    "content": "UX0\/esOhzcWY0OQ819Jm0A==",
+    "expiration_timestamp": 1773183506,
+    "password_hash": "$2y$10$TrGkcc.wD6o6GMLPA406keUVEUMmmbxcrhCDaDQJhoRX309.bYTqO",
+    "burn_after_read": true,
+    "created_at": 1773097106,
+    "encryption_salt": "2Fi3xKT8Hbi7I2eLt5SLCQ==",
+    "encryption_iv": "\/TtEpyJc+0265LP4HXhqww==",
+    "is_encrypted": true,
+    "kdf_iterations": 600000
+}

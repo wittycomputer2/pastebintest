@@ -1,0 +1,12 @@
+{
+    "id": "696e695ec151e0e4662de",
+    "content": "Graciees#1",
+    "expiration_timestamp": 1768930014,
+    "password_hash": null,
+    "burn_after_read": false,
+    "created_at": 1768843614,
+    "encryption_salt": null,
+    "encryption_iv": null,
+    "is_encrypted": false,
+    "kdf_iterations": 600000
+}

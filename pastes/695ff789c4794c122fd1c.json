@@ -1,0 +1,12 @@
+{
+    "id": "695ff789c4794c122fd1c",
+    "content": "XCAfym9mTQY5T7+tWzGRTzjxzkDuigRelOTyb5K16GI=",
+    "expiration_timestamp": 1767983369,
+    "password_hash": "$2y$10$hLHGRH2EhlCNMvmA3s7RZebqeS7vso9x98er5Y1FTFTQwWZcUpmj6",
+    "burn_after_read": false,
+    "created_at": 1767896969,
+    "encryption_salt": "FUvTXictAWmAvCe9gRZp+A==",
+    "encryption_iv": "ca257vRxkPiXWPk0Br27vA==",
+    "is_encrypted": true,
+    "kdf_iterations": 600000
+}

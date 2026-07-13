@@ -1,0 +1,11 @@
+{
+    "id": "6874144b60cf061c09785",
+    "content": "GIWXTON-YJ4K6GJ-EVF42ES-RY3VMPR-GVJKV4R-N6BMMRE-BB3LGQH-VCQI4AP",
+    "expiration_timestamp": 1752524235,
+    "password_hash": null,
+    "burn_after_read": false,
+    "created_at": 1752437835,
+    "encryption_salt": null,
+    "encryption_iv": null,
+    "is_encrypted": false
+}

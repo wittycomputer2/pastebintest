@@ -1,0 +1,11 @@
+{
+    "id": "6858a4a4f0ce8b467f4de",
+    "content": "eU1BlM9zLloJYOzteaNvNsdgp6eeHknyOwF7AdLwTIE=",
+    "expiration_timestamp": 1750726180,
+    "password_hash": "$2y$10$tbXEGoDM7ePxE2R..5MMTuJKSKe2SqHhSL5mpelIS52OoU6pTDWla",
+    "burn_after_read": false,
+    "created_at": 1750639780,
+    "encryption_salt": "vj7MdjRsg9YK6mNzyAHYzg==",
+    "encryption_iv": "lltCR8fkCZA77QX8QRVa5Q==",
+    "is_encrypted": true
+}

@@ -1,0 +1,12 @@
+{
+    "id": "696e6919cc5231eecb0f9",
+    "content": "Gracie#eslomaximo",
+    "expiration_timestamp": 1768929945,
+    "password_hash": null,
+    "burn_after_read": false,
+    "created_at": 1768843545,
+    "encryption_salt": null,
+    "encryption_iv": null,
+    "is_encrypted": false,
+    "kdf_iterations": 600000
+}

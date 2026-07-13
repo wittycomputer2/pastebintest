@@ -1,0 +1,15 @@
+[20-Jan-2026 21:26:28 UTC] PHP Fatal error:  Uncaught TypeError: flock(): supplied resource is not a valid stream resource in /home/user4851/public_html/paste.witty.computer/view.php:164
+Stack trace:
+#0 /home/user4851/public_html/paste.witty.computer/view.php(164): flock(Resource id #3, 3)
+#1 {main}
+  thrown in /home/user4851/public_html/paste.witty.computer/view.php on line 164
+[11-Mar-2026 21:39:25 UTC] PHP Fatal error:  Uncaught TypeError: flock(): supplied resource is not a valid stream resource in /home/user4851/public_html/paste.witty.computer/view.php:164
+Stack trace:
+#0 /home/user4851/public_html/paste.witty.computer/view.php(164): flock(Resource id #3, 3)
+#1 {main}
+  thrown in /home/user4851/public_html/paste.witty.computer/view.php on line 164
+[26-Mar-2026 00:29:38 UTC] PHP Fatal error:  Uncaught TypeError: flock(): supplied resource is not a valid stream resource in /home/user4851/public_html/paste.witty.computer/view.php:164
+Stack trace:
+#0 /home/user4851/public_html/paste.witty.computer/view.php(164): flock(Resource id #3, 3)
+#1 {main}
+  thrown in /home/user4851/public_html/paste.witty.computer/view.php on line 164

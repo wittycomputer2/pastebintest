@@ -1,0 +1,12 @@
+{
+    "id": "6a19e80a3a50c8db2dfb6",
+    "content": "$3150 + 2400 = $5,550 \r\n5,550 * $96,280.17\r\n\r\n***************\r\n***************\r\nTOTAL $96,200. \r\n***************\r\n***************\r\n",
+    "expiration_timestamp": 1782674698,
+    "password_hash": null,
+    "burn_after_read": false,
+    "created_at": 1780082698,
+    "encryption_salt": null,
+    "encryption_iv": null,
+    "is_encrypted": false,
+    "kdf_iterations": 600000
+}

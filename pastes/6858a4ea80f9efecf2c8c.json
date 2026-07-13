@@ -1,0 +1,11 @@
+{
+    "id": "6858a4ea80f9efecf2c8c",
+    "content": "hola como estas que tal, me gusta este programita.",
+    "expiration_timestamp": 1751244650,
+    "password_hash": null,
+    "burn_after_read": false,
+    "created_at": 1750639850,
+    "encryption_salt": null,
+    "encryption_iv": null,
+    "is_encrypted": false
+}

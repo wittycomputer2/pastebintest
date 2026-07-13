@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const pasteForm = document.getElementById('pasteForm');
     const resultMessageDiv = document.getElementById('resultMessage');
 
@@ -12,44 +12,44 @@ document.addEventListener('DOMContentLoaded', function() {
         // For now, we'll assume it should be in the HTML.
     }
 
-    pasteForm.addEventListener('submit', function(event) {
+    pasteForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Stop default synchronous submission
 
         const formData = new FormData(pasteForm);
 
         // Clear previous results
-        if(resultMessageDiv) resultMessageDiv.innerHTML = '';
+        if (resultMessageDiv) resultMessageDiv.innerHTML = '';
 
         fetch('create.php', {
             method: 'POST',
             body: formData
         })
-        .then(response => {
-            if (!response.ok) {
-                // Try to parse JSON error body if server returns it, otherwise generic error
-                return response.json().catch(() => {
-                    throw new Error(`Server error: ${response.status} ${response.statusText}`);
-                }).then(errorData => {
-                    throw { serverError: true, data: errorData }; // Custom error structure
-                });
-            }
-            return response.json();
-        })
-        .then(data => {
-            displayPasteResult(data, pasteForm);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            let errorMessage;
-            if (error.serverError && error.data && error.data.message) {
-                errorMessage = error.data.message;
-            } else if (error.message) {
-                errorMessage = error.message;
-            } else {
-                errorMessage = 'An error occurred while creating the paste. Please try again.';
-            }
-            displayPasteResult({ status: 'error', message: errorMessage });
-        });
+            .then(response => {
+                if (!response.ok) {
+                    // Try to parse JSON error body if server returns it, otherwise generic error
+                    return response.json().catch(() => {
+                        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+                    }).then(errorData => {
+                        throw { serverError: true, data: errorData }; // Custom error structure
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                displayPasteResult(data, pasteForm);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                let errorMessage;
+                if (error.serverError && error.data && error.data.message) {
+                    errorMessage = error.data.message;
+                } else if (error.message) {
+                    errorMessage = error.message;
+                } else {
+                    errorMessage = 'An error occurred while creating the paste. Please try again.';
+                }
+                displayPasteResult({ status: 'error', message: errorMessage });
+            });
     });
 
     function displayPasteResult(data, form = null) {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
             resultMessageDiv.appendChild(urlInput);
 
             // Auto-select the URL
-            urlInput.addEventListener('focus', function() {
+            urlInput.addEventListener('focus', function () {
                 this.select();
             });
             urlInput.select(); // Select on creation
@@ -104,16 +104,32 @@ document.addEventListener('DOMContentLoaded', function() {
             copyButton.style.borderRadius = '4px';
             copyButton.style.cursor = 'pointer';
 
-            copyButton.addEventListener('click', function() {
+            copyButton.addEventListener('click', function () {
                 urlInput.select();
-                try {
-                    document.execCommand('copy'); // Deprecated but widely supported
-                    // You could update button text to "Copied!" temporarily
-                    copyButton.textContent = 'Copied!';
-                    setTimeout(() => { copyButton.textContent = 'Copy URL'; }, 2000);
-                } catch (err) {
-                    console.warn('Fallback: Could not copy text automatically. User may need to manually copy.');
-                    // alert("Could not copy automatically. Please press Ctrl+C.");
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(urlInput.value).then(() => {
+                        copyButton.textContent = 'Copied!';
+                        setTimeout(() => { copyButton.textContent = 'Copy URL'; }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                        // Fallback?
+                        try {
+                            document.execCommand('copy');
+                            copyButton.textContent = 'Copied!';
+                            setTimeout(() => { copyButton.textContent = 'Copy URL'; }, 2000);
+                        } catch (e) {
+                            alert("Could not copy automatically. Please copy the URL manually.");
+                        }
+                    });
+                } else {
+                    // Fallback for older browsers or non-secure contexts
+                    try {
+                        document.execCommand('copy');
+                        copyButton.textContent = 'Copied!';
+                        setTimeout(() => { copyButton.textContent = 'Copy URL'; }, 2000);
+                    } catch (err) {
+                        alert("Could not copy automatically. Please copy the URL manually.");
+                    }
                 }
             });
             resultMessageDiv.appendChild(copyButton);
